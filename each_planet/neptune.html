@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mercury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+
+
+
+
+
+
+    
+    <style>
+        .background {
+            position: absolute;
+            /* 绝对定位 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../full-images/Neptune_cutout.png');
+            /* 替换为你的水星图片路径 */
+            background-size: 36%;
+            /* 使背景图像覆盖整个页面 */
+            background-repeat: no-repeat;
+            background-position: center;
+            /* 背景居中 */
+            animation: rotate 30s linear infinite;
+            /* 添加旋转动画 */
+            z-index: 1;
+            /* 确保背景在其他内容下方 */
+            filter: blur(1px);
+            /* 初始模糊效果 */
+            transition: background-size 1.2s ease, opacity 1.2s ease;
+
+        }
+
+
+
+
+
+        .shrink {  
+            background-size: 14%;
+     
+        }
+
+
+
+    .story p {
+
+        filter: contrast(0.9);
+
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+    </style>
+
+
+
+<script src="../api.js"></script>
+
+<script src="../script.js"></script>
+
+<script src="planet.js"></script>
+
+<link rel="stylesheet" href="planets.css">
+
+</head>
+
+<body>
+
+    <div class="stars"> </div>
+
+    <div class="background" id="background">
+
+
+
+    </div> <!-- 背景容器 -->
+
+    <div class="story" id="story">
+        <p></p>
+    </div>
+
+    <h1 id="planet-name">Neptune (8th)</h1>
+
+    <h2 class="character">"A distant ice giant."</h2>
+
+    <div class="content" id="content">
+
+    
+        <div id="planets-container"></div>
+
+    </div>
+    <button id="funFactButton" style="position: fixed; top: 20px; right: 20px; z-index: 2;">Show Fun Fact</button>
+    <div class="planet-fact" id="planet-fact">
+        <h2 class="planet-fact-title">"Neptune: The Windy Ice Giant"</h2>
+        <p class="planet-fact-paragraph">
+            Neptune has the strongest winds in the solar system, with speeds reaching up to 2,100 kilometers per hour
+            (about 1,300 miles per hour). These fierce winds create massive storms and dynamic weather patterns,
+            including the planet's famous Great Dark Spot, which is similar to Jupiter's Great Red Spot.
+        </p>
+        <a href="https://science.nasa.gov/neptune" target="_blank" class="nasa-link">
+            Click here: learn more about Neptune on NASA's website
+        </a>
+    </div>
+
+    <div class="image-container">
+        <img src="../10-facts/neptune.png" alt="Fun Fact" class="moving-image" id="funFactImage">
+    </div>
+
+
+
+    <a href="../planets-overview.html" class="back-link" onclick="animateAndNavigate(event)">Back to Planets
+        Overview</a>
+
+
+    <script src="planet.js"></script>
+
+    <script>
+
+        const planetName = 'neptune';
+        console.log('Fetching data for:', planetName); // 调试输出
+        fetchPlanets(planetName);
+
+    </script>
+</body>
+
+</html>
