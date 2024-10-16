@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mercury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+
+
+
+    <style>
+        .background {
+            position: absolute;
+            /* 绝对定位 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../full-images/Transparent_Uranus.png');
+            /* 替换为你的水星图片路径 */
+            background-size: 50%;
+            /* 使背景图像覆盖整个页面 */
+            background-repeat: no-repeat;
+            background-position: center;
+            /* 背景居中 */
+            animation: rotate 30s linear infinite;
+            /* 添加旋转动画 */
+            z-index: 1;
+            /* 确保背景在其他内容下方 */
+            filter: blur(1px);
+            /* 初始模糊效果 */
+            transition: background-size 1.2s ease, opacity 1.2s ease;
+
+        }
+
+
+
+
+        
+        .shrink {
+       
+            background-size: 18%;
+            /* 将背景缩小到10% */
+          
+        }
+
+
+
+        .story p {
+        
+         color: blue ;
+         font-weight: 200;
+         font-family: Impact, Haettenschweiler;
+      
+        }
+    </style>
+
+    <script src="/api.js"></script>
+
+    <script src="../api.js"></script>
+
+    <script src="planet.js"></script>
+
+    <link rel="stylesheet" href="planets.css">
+
+</head>
+
+<body>
+
+    <div class="stars"> </div>
+    <div class="background" id="background">
+
+
+    </div> <!-- 背景容器 -->
+
+    <div class="story" id="story">
+        <p></p>
+    </div>
+
+    <h1 id="planet-name">Uranus (7th)</h1>
+
+    <h2 class="character" style=" font-family: 'Montserrat', sans-serif;
+font-weight: bold; ">"Unique sideways rotation."</h2>
+
+    <div class="content" id="content">
+
+
+
+        <div id="planets-container"></div>
+
+    </div>
+
+    <button id="funFactButton" style="position: fixed; top: 20px; right: 20px; z-index: 2;">Show Fun Fact</button>
+    <div class="planet-fact" id="planet-fact">
+        <h2 class="planet-fact-title">
+            Uranus: The Planet That Rolls on Its Side</h2>
+        <p class="planet-fact-paragraph">
+            Unlike most planets in the solar system, which have an upright rotation axis, Uranus is tilted at an angle
+            of about 98 degrees. This extreme tilt means that its poles are nearly in the plane of its orbit around the
+            Sun. As a result, Uranus experiences unique seasons, with each pole getting 42 years of continuous sunlight
+            followed by 42 years of darkness! This unusual orientation contributes to its distinct and complex weather
+            patterns.
+        </p>
+        <a href="https://science.nasa.gov/uranus" target="_blank" class="nasa-link">
+            Click here: learn more about Uranus on NASA's website
+        </a>
+    </div>
+
+
+
+    <div class="image-container">
+        <img src="../10-facts/uranus.png" alt="Fun Fact" class="moving-image" id="funFactImage">
+    </div>
+
+    <a href="../planets-overview.html" class="back-link" onclick="animateAndNavigate(event)">Back to Planets
+        Overview</a>
+
+
+    <script src="planet.js">
+
+    </script>
+
+    <script>
+
+        const planetName = 'uranus';
+        console.log('Fetching data for:', planetName); // 调试输出
+        fetchPlanets(planetName);
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

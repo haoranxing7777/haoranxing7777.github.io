@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        h1 {
+            position: absolute;
+            left: 50%;
+            /* Center horizontally */
+            top: 80%;
+            /* Adjust this value to move it lower */
+            transform: translateX(-50%);
+            /* Offset the width for perfect centering */
+            margin: 0;
+            /* Remove default margin */
+            font-size: 5rem;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.9);
+            transition: transform 0.3s ease;
+            /* Smooth transition */
+        }
+
+        h1:hover {
+
+            transform: translate(-50%, 0) scale(1.1);
+            /* Move right and scale */
+
+        }
+
+        #fact {
+            position: absolute;
+            /* Absolute positioning for better control */
+            font-size: 32px;
+            /* Font size */
+            top: 15%;
+            /* Vertical position */
+            left: 50%;
+            /* Center horizontally */
+            transform: translateX(-50%);
+            /* Center adjustment */
+            text-align: center;
+            opacity: 1;
+            /* Initial opacity */
+            color: white;
+            /* Ensure the fact text is white */
+            transition: opacity 2s ease-in-out;
+            /* Smooth transition for opacity */
+        }
+
+        /* 初始状态：完全透明 */
+        .fade-out {
+            opacity: 0;
+            animation: fadeOut 5s forwards;
+            /* 5秒的渐出动画 */
+        }
+
+        .fade-in {
+            opacity: 1;
+            animation: fadeIn 5s forwards;
+            /* 5秒的渐入动画 */
+        }
+
+        /* 渐出动画 */
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
+        /* 渐入动画 */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .info {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            position: absolute;
+            transition: opacity 0.3s;
+            width: 200px;
+            opacity: 0;
+        }
+    </style>
+
+
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Solar System
+    </title>
+
+    <link rel="stylesheet" href="./style.css">
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+    <script src="script.js">
+
+    </script>
+
+
+
+    <p id="fact">This is our solar system.</p>
+
+
+    <div class="container">
+        <div class="sun">
+            <img src="./planets/Sun.webp" alt="">
+
+        </div>
+
+        <div class="stars"> </div>
+        <div class="mercury"> </div>
+        <div class="venus"> </div>
+        <div class="earth">
+
+
+            <div class="moon">
+
+            </div>
+        </div>
+        <div class="mars"> </div>
+        <div class="jupiter"> </div>
+        <div class="saturn"> </div>
+        <div class="uranus"> </div>
+        <div class="neptune"> </div>
+        <div class="pluto"> </div>
+
+    </div>
+
+
+    <a href="planets-overview.html" style="text-decoration: none; color: inherit;">
+        <h1>Solar System</h1>
+    </a>
+
+
+
+
+
+</body>
+
+</html>

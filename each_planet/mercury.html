@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        .background {
+            position: absolute;
+            /* 绝对定位 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../full-images/mercury-HD.png.png');
+            /* 替换为你的水星图片路径 */
+            background-size: 70%;
+            /* 使背景图像覆盖整个页面 */
+            background-repeat: no-repeat;
+            background-position: center;
+            /* 背景居中 */
+            animation: rotate 50s linear infinite;
+            /* 添加旋转动画 */
+            z-index: 1;
+            /* 确保背景在其他内容下方 */
+            filter: blur(1px);
+            /* 初始模糊效果 */
+            transition: background-size 1.2s ease, opacity 1.2s ease;
+
+        }
+
+
+        .shrink {
+
+            background-size: 27%;
+
+        }
+
+    .story p{
+
+
+        font-family: "Roboto", sans-serif;
+        font-weight: 100;
+        filter: contrast(0.8);
+    }
+
+
+    </style>
+
+
+     <script>
+
+
+
+
+     </script>
+
+
+    <script src="../api.js"></script>
+
+    <script src="../script.js"></script>
+
+    <script src="planet.js"></script>
+
+    <link rel="stylesheet" href="planets.css">
+
+</head>
+
+<body>
+
+    <div class="stars"> </div>
+
+    <div class="background" id="background">
+
+        <div class="blur-overlay"></div>
+
+    </div> 
+
+    <div class="story" id="story">
+        <p></p>
+    </div>
+
+
+    <h1 id="planet-name">Mercury (1st)</h1>
+
+    <h2 class="character" style=" font-family: 'Montserrat', sans-serif;
+    font-weight: bold; color: gray;">"Extreme heat, Extreme cold."</h2>
+    
+
+    <div class="content" id="content">
+
+
+      
+        <div id="planets-container"></div>
+
+    </div>
+
+    <button id="funFactButton" style="position: fixed; top: 20px; right: 20px; z-index: 2;">Show Fun Fact</button>
+    <div class="planet-fact" id="planet-fact">
+        <h2 class="planet-fact-title">Mercury's thin atmosphere.</h2>
+        <p class="planet-fact-paragraph">
+            Mercury is the closest planet to the Sun and experiences extreme temperature changes. During the day,
+            temperatures can reach up to 800°F (427°C), while at night, they can drop to -330°F (-201°C). This occurs
+            because Mercury has a very thin atmosphere that cannot retain heat.
+        </p>
+        <a href="https://science.nasa.gov/mercury" target="_blank" class="nasa-link">
+            Click here: learn more about Mercury on NASA's website
+        </a>
+    </div>
+
+
+    <div class="image-container">
+        <img src="../10-facts/mercury.png" alt="Fun Fact" class="moving-image" id="funFactImage">
+    </div>
+
+    <a href="../planets-overview.html" class="back-link" onclick="animateAndNavigate(event)">Back to Planets
+        Overview</a>
+
+
+
+    <script src="planet.js">
+
+    </script>
+    <script>
+
+        const planetName = 'mercury';
+        console.log('Fetching data for:', planetName); // 调试输出
+        fetchPlanets(planetName);
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

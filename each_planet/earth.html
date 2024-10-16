@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Earth</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+
+
+        .earth.shrink {
+
+            transform: scale(0.3);
+            /* 当使用 .shrink 类时，进一步缩小 */
+            transition: transform 1.2s ease;
+            /* 加入缩小的平滑过渡 */
+
+        }
+
+        .earth {
+            width: 920px;
+            height: 920px;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 50%;
+            box-shadow: 50px 50px 50px 50px #000 inset, 0 0 50px 2px #000;
+            transition: background-size 1.2s ease, opacity 1.2s ease;
+        }
+
+        .earth:after {
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            box-shadow: inset 0 0 50px 10px #000,
+                inset -30px -30px 20px rgba(0, 0, 0, 0.9);
+            /* 加重左上角阴影 */
+            border-radius: 50%;
+            transition: background-size 1.2s ease, opacity 1.2s ease;
+        }
+
+        .earth>div {
+            width: 200%;
+            height: 100%;
+            animation: spin 15s linear infinite;
+            /*alternate*/
+            background: url("../full-images/earth-long.png");
+            background-size: cover;
+            transition: background-size 1.2s ease, opacity 1.2s ease;
+            opacity: 1;
+            filter: blur(2px);
+            z-index: 5;
+        }
+
+
+        @keyframes spin {
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="./planets.css">
+
+    <script src="../api.js"></script>
+
+    <script src="planet.js"></script>
+  
+
+</head>
+
+<body>
+
+    <div class="stars"> </div>
+    <!--<div class="background" id="background" ></div> &lt;!&ndash; 背景容器 &ndash;&gt;-->
+    <div class="earth" id="earth">
+        <div></div>
+    </div>
+
+    <div class="story" id="story">
+        <p></p>
+    </div>
+
+
+    <h1 id="planet-name">Earth (3th)</h1>
+
+    <h2 class="character" style=" font-family: 'Montserrat', sans-serif;
+    font-weight: bold; ">"A great planet that gave birth to life."</h2>
+
+
+    <div class="content" id="content">
+
+
+
+
+        <div id="planets-container"></div>
+
+    </div>
+
+
+    <div class="earth-fact" id="earth-fact"
+        style="border: 1px solid #ccc; padding: 15px; border-radius: 5px; background-color: #f9f9f9; width: 450px; position: absolute; top: 50%; right: 50px; transform: translateY(-50%);  font-family: Arial, sans-serif;">
+        <h2 style="color: #333; text-align: center">This is our Home !</h2>
+        <p style="color: #555;">
+            Earth is the only known planet where water exists in all three states—solid, liquid, and gas—at the same
+            time! This unique feature plays a crucial role in supporting life as we know it.
+        
+        </p>
+        <a href="https://science.nasa.gov/earth" target="_blank" class="nasa-link">
+            Click here: learn more about Earth on NASA's website
+        </a>
+    </div>
+
+
+
+    <a href="../planets-overview.html" class="back-link" onclick="animateAndNavigate(event)">Back to Planets
+        Overview</a>
+
+
+    <script src="planet.js">
+
+    </script>
+
+    <script>
+
+        const planetName = 'earth';
+        console.log('Fetching data for:', planetName); // 调试输出
+        fetchPlanets(planetName);
+
+
+
+        function animateAndNavigate(event) {
+            event.preventDefault(); // 阻止立即跳转
+            // 添加动画类
+            const background = document.getElementById('earth');
+            const content = document.getElementById('content');
+            const story = document.getElementById('story');
+            const fact = document.getElementById('earth-fact');
+            story.classList.add('story-out');
+            fact.classList.add('broken');
+            content.classList.add('shrunk'); // 文字淡出
+            background.classList.add('shrink'); // 添加缩小效果
+            // 等待动画结束后跳转
+            setTimeout(function () {
+                window.location.href = event.target.href;
+            }, 1200);
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

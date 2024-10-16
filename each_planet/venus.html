@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mercury</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        .background {
+            position: absolute;
+            /* 绝对定位 */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../full-images/Venus_globe_-_transparent_background.png');
+            /* 替换为你的水星图片路径 */
+            background-size: 40%;
+            /* 使背景图像覆盖整个页面 */
+            background-repeat: no-repeat;
+            background-position: center;
+            /* 背景居中 */
+            animation: rotate 30s linear infinite;
+            /* 添加旋转动画 */
+            z-index: 1;
+            /* 确保背景在其他内容下方 */
+            filter: blur(1px);
+            /* 初始模糊效果 */
+            transition: background-size 1.2s ease, opacity 1.2s ease;
+
+        }
+
+
+
+        .shrink {
+          
+            background-size: 14%;
+            /* 将背景缩小到10% */
+       
+        }
+
+
+       .story p{
+
+  
+        font-family: "Playfair Display";
+        font-weight: 550;
+        color: black;
+        filter: contrast(0.9);
+        filter:opacity(0.9);
+       }
+
+    </style>
+
+
+    <script src="/api.js"></script>
+
+    <script src="../api.js"></script>
+
+    <script src="planet.js"></script>
+
+    <link rel="stylesheet" href="planets.css">
+
+</head>
+
+<body>
+
+    <div class="stars"> </div>
+    <div class="background" id="background">
+
+        <div class="blur-overlay"></div>
+
+    </div> <!-- 背景容器 -->
+
+    <div class="story" id="story">
+        <p></p>
+    </div>
+
+    <h1 id="planet-name">Venus (2nd)</h1>
+
+    <h2 class="character" style=" font-family: 'Montserrat', sans-serif;
+font-weight: bold; color: red;">"The hottest planet in our solar system."</h2>
+
+    <div class="content" id="content">
+
+    
+
+        <div id="planets-container"></div>
+
+    </div>
+
+
+    <button id="funFactButton" style="position: fixed; top: 20px; right: 20px; z-index: 2;">Show Fun Fact</button>
+    
+    <div class="planet-fact" id="planet-fact">
+        <h2 class="planet-fact-title">Indeed, hot!</h2>
+        <p class="planet-fact-paragraph">
+            Venus is indeed the hottest planet in our solar system, with scorching surface temperatures around 900°F
+            (475°C), capable of melting lead. It truly showcases the extremes of planetary environments!
+        </P>
+        <a href="https://science.nasa.gov/venus" target="_blank" class="nasa-link">
+            Click here: learn more about Venus on NASA's website
+        </a>
+    </div>
+
+
+
+    <div class="image-container">
+        <img src="../10-facts/venus.png"; alt="Fun Fact" class="moving-image" id="funFactImage">
+        <p>Computer-generated three-dimensional perspective view of the surface of Venus.</p>
+    </div>
+
+
+    <a href="../planets-overview.html" class="back-link" onclick="animateAndNavigate(event)">Back to Planets
+        Overview</a>
+
+
+    <script src="planet.js">
+
+    </script>
+
+    <script>
+
+        const planetName = 'venus';
+        console.log('Fetching data for:', planetName); // 调试输出
+        fetchPlanets(planetName);
+
+
+
+
+
+    </script>
+</body>
+
+</html>
