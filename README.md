@@ -11,5 +11,6 @@ To start the API and fetch planetary data, please follow these steps:
 1. Navigate to the `src` directory:
    cd src
 
-2. Run the ApiService.js file to start the API:
-node ApiService.js
+2. Run the `node ApiService.js` file to start the API:
+
+    node ApiService.js
