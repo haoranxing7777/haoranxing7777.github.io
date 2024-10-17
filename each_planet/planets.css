@@ -31,13 +31,23 @@ body {
 
 #planet-name {
     position: absolute;
-    top: 3%;
+    top: 1vh;
+    /* 使用 vh 单位以确保在不同屏幕高度下保持一致 */
     left: 50%;
-
     transform: translateX(-50%);
+    font-size: 2vw;
+    /* 根据视窗宽度调整字体大小，使其更具响应性 */
+}
 
-    font-size: xxx-large;
-
+.character {
+    position: absolute;
+    top: 8vh;
+    /* 使用 vh 单位让其相对视窗高度的位置保持一致 */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1vw;
+    /* 使用视窗宽度调整字体大小 */
+    color: #4f8fff;
 }
 
 
@@ -54,41 +64,31 @@ body {
 
 
 .content {
+
     display: flex;
-    position: absolute;
+    position: relative;
+    /* 改为相对定位，确保布局更灵活 */
     left: 5%;
     height: auto;
-    transform: translateY() scale(1);
 
-    transform: translateY() scale(1) rotatey(0deg);
+    transform: translateY(0) scale(1) rotateY(0deg);
 
     flex-direction: column;
     line-height: 2;
     justify-content: center;
     align-items: flex-start;
+
     height: 100vh;
     padding-left: 0px;
+
     color: rgb(255, 255, 255);
     z-index: 1;
+
     font-family: Arial, 'Franklin Gothic Medium', 'Arial Narrow', sans-serif;
+
     transition: opacity 1s ease, transform 0.5s ease-in-out;
 
     opacity: 1;
-}
-
-
-
-.character {
-
-    position: absolute;
-    top: 10%;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    font-size: large;
-
-    color: #4f8fff;
 }
 
 
@@ -104,19 +104,39 @@ body {
 
 .content:hover {
     opacity: 0.8;
-
     transform: rotatey(180deg)
 }
 
 .back-link {
     position: absolute;
-    /* 绝对定位 */
-    bottom: 20px;
-    /* 距离底部20px */
-    right: 20px;
-    /* 距离右边20px */
+    bottom: 2em;
+    /* 使用 em 确保在不同字体大小下的间距一致 */
+    right: 2em;
     text-decoration: none;
     color: inherit;
+    font-size: 1em;
+    /* 设置基准字体大小 */
+
+    /* 过渡效果，鼠标悬停时渐变 */
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.back-link:hover {
+    color: #4f8fff;
+    /* 悬停时改变颜色 */
+    transform: scale(1.2);
+    /* 悬停时稍微放大 */
+}
+
+/* 针对小屏幕的优化 */
+@media (max-width: 1080px) {
+    .back-link {
+        bottom: 1.5em;
+        /* 减小间距 */
+        right: 1.5em;
+        font-size: 0.9em;
+        /* 减小字体大小 */
+    }
 }
 
 h1 {
@@ -124,51 +144,60 @@ h1 {
 
     font-size: 3em;
 
-    margin: 20px 0;
+    margin: 1em 0;
 
 }
 
 
 .planet-fact {
+
     display: none;
     border: 1px solid rgba(9, 9, 9, 0.9);
     padding: 15px;
     border-radius: 10px;
     background: space;
-    width: 550px;
+    width: 40%;
+    max-width: 600px;
     position: absolute;
     top: 13.5%;
-    right: 20px;
+    right: 2em;
     transform: translateY(-50%);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 15px rgba(0, 98, 245, 0.6);
     opacity: 0.9;
     /* 初始不透明度 */
     transition: transform 0.5s ease, opacity 0.5s ease;
-    z-index: 1;
+    z-index: 10;
 }
+
+
+/* 针对小屏幕设备的样式调整 */
+@media (max-width: 1080px) {
+    .planet-fact {
+        width: 90vw;
+        right: 5%;
+        top: 10%;
+        transform: translate(0, 0);
+    }
+}
+
 
 .planet-fact-title {
     text-align: center;
     color: rgb(183, 51, 44);
 }
 
-#sun-fact-title {
-
-    text-align: center;
-    color: goldenrod;
-}
 
 
-.clear-blur {
+/* .clear-blur {
     filter: blur(0);
 
-}
+} */
 
 
-.shrink {
+/* .shrink {
     filter: blur(1.2px);
-}
+} */
 
 
 /* 收缩状态 */
@@ -182,7 +211,7 @@ h1 {
 
 
 
-.shattered-text {
+/* .shattered-text {
     display: inline-block;
     position: relative;
     overflow: hidden;
@@ -191,7 +220,7 @@ h1 {
 .shattered-text span {
     display: inline-block;
     transition: transform 0.5s ease, opacity 0.5s ease;
-}
+} */
 
 .broken {
     transition: transform 0.5s ease, opacity 0.5s ease;
@@ -206,7 +235,8 @@ h1 {
 .image-container {
     width: 27%;
     /* 设置宽度为屏幕的三分之二 */
-    /* display: flex; */
+    display: flex;
+    flex-direction: column;
     /* 使用弹性布局 */
     justify-content: center;
     /* 将内容水平居中对齐 */
@@ -224,65 +254,112 @@ h1 {
 
 .image-container img {
     max-width: 100%;
-
+    max-height: 100%;
+    /* 限制图片的最大高度 */
+    object-fit: contain;
+    /* 确保图片按比例缩放 */
 }
+
+
+
+.moving-image {
+    max-height: 100%;
+    height: auto;
+    /* 保持图片比例 */
+    transition: transform 0.3s ease, opacity 0.5s ease;
+    /* 设置平滑移动的过渡效果 */
+    opacity: 0.6;
+    z-index: 10;
+}
+
+.moving-image:hover {
+    transform: scale(1.1);
+    /* 鼠标悬停时放大 */
+    opacity: 1;
+    transition: transform 0.3s ease, opacity 0.5s ease,
+}
+
+.image-container {
+    width: 27%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 15px;
+    position: relative;
+    margin-left: auto;
+    /* 推到右边 */
+    margin-right: 0;
+}
+
 
 .image-container p {
     font-size: 12px;
     text-align: center;
 }
 
-.moving-image {
-    max-height: 100%;
-    opacity: 1;
-    height: auto;
-    /* 保持图片比例 */
-    transition: transform 0.5s ease;
-    /* 设置平滑移动的过渡效果 */
-    z-index: 10;
+@media (max-width: 1080px) {
+    .image-container {
+        width: 20%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .image-container img {
+        max-height: 50vh;
+        /* 限制图片高度，防止太大 */
+    }
 }
 
-.image-container {
-    position: relative;
-    /* 让容器相对定位 */
-}
+
 
 #funFactImage {
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     cursor: zoom-in;
     max-width: 100%;
     height: auto;
 }
 
-#funFactImage:hover {
-    transform: scale(1.05);
-}
+
 
 #funFactImage.centered {
+    max-width: none;
     max-height: 80%;
-    transform: translate(-50%, -50%) scale(1.2); /* 同时居中和放大 */
+    transform: translate(-50%, -50%) scale(1.2);
+    /* 同时居中和放大 */
     opacity: 1;
-    position: fixed; /* 确保图片固定在屏幕中心 */
+    position: fixed;
+    /* 确保图片固定在屏幕中心 */
     top: 50%;
     left: 50%;
-    z-index: 10; /* 确保图片在最上方 */
-    cursor: zoom-out; /* 放大后变为缩小指针 */
+    z-index: 10;
+    /* 确保图片在最上方 */
+    cursor: zoom-out;
+    /* 放大后变为缩小指针 */
+    transform: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .nasa-link {
+    display: inline-block;
+    /* 使用 inline-block 保持文本内联且可以控制宽度 */
     z-index: 10;
-    position: relative;
-    text-align: center;
+    /* 确保链接显示在前 */
     color: #4f8fff;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 10px;
-    display: inline-block;
-
+    margin: 3px auto;
+    /* 上下有间距，并让其水平居中 */
+    padding: 3px auto;
+    /* 为链接增加一些内边距 */
+    position: relative;
+    transition: transform 0.5s ease, text-decoration 0.5s ease;
+    /* 平滑的过渡效果 */
 }
 
 .nasa-link:hover {
+    transform: scale(1.03);
+    /* 鼠标悬停时轻微放大 */
     text-decoration: underline;
+    /* 悬停时添加下划线 */
 }
 
 @keyframes rotate {
@@ -302,8 +379,11 @@ h1 {
     /* Ensure it appears above other elements */
     position: fixed;
     /* Set relative positioning */
-    height: 600px;
-    width: 1200px;
+    max-height: 600px;
+    /* 设置最大高度，防止溢出 */
+    width: 60%;
+    /* 让宽度自适应，最多占据屏幕宽度的80% */
+    padding: 20px;
     line-height: 1.5;
     /* Set line height for better readability */
 }
@@ -312,7 +392,7 @@ h1 {
 .story p {
     font-style: oblique;
     /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-    font-size: 36px;
+    font-size: 32px;
     /* Set font size */
     transition: opacity 1s ease;
     /* Smooth transition for opacity */
@@ -327,13 +407,11 @@ h1 {
     z-index: 2;
 }
 
-
 .story-out {
+    transform: scale(1.25) skewX(10deg);
     transition: transform 1s ease, opacity 1s ease;
     opacity: 0;
 }
-
-
 
 /* 初始状态：完全透明 */
 .fade-out {
