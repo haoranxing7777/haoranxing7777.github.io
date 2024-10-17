@@ -3,7 +3,6 @@
     background: white;
     border-radius: 50%;
     z-index: -999;
-    /* 确保星星在背景图像之下 */
     width: 2px;
     height: 2px;
     opacity: 0.8;
@@ -272,6 +271,7 @@ h1 {
 
 .nasa-link {
     z-index: 10;
+    position: relative;
     text-align: center;
     color: #4f8fff;
     text-decoration: none;
@@ -312,7 +312,7 @@ h1 {
 .story p {
     font-style: oblique;
     /* font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; */
-    font-size: 46px;
+    font-size: 36px;
     /* Set font size */
     transition: opacity 1s ease;
     /* Smooth transition for opacity */

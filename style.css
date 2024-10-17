@@ -169,7 +169,7 @@ img{
 
 .uranus {
 
-    top: -68em;
+    top: -58em;
     left: -66em;
     width: 180em;
     height: 180em;
@@ -303,8 +303,8 @@ img{
 
 .uranus::before{
 
-    top: 5em;
-    right: 52em;
+    top: 4em;
+    right: 54em;
     width: 4.2em;
     height: 4.2em;
     background-image: url("./planets/Transparent_Uranus.png");
@@ -314,7 +314,7 @@ img{
 
 .neptune::before{
 
-    top: 5em;
+    top: 4em;
     right: 60em;
     width: 4.2em;
     height: 4.2em;
