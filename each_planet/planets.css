@@ -260,7 +260,7 @@ h1 {
 }
 
 #funFactImage.centered {
-    max-height: 69%;
+    max-height: 85%;
     transform: translate(-50%, -50%) scale(1.2); /* 同时居中和放大 */
     opacity: 1;
     position: fixed; /* 确保图片固定在屏幕中心 */
@@ -271,6 +271,7 @@ h1 {
 }
 
 .nasa-link {
+    z-index: 10;
     text-align: center;
     color: #4f8fff;
     text-decoration: none;
